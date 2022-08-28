@@ -4,11 +4,23 @@ const removeBtn = document.querySelector(".todo");
 const doneBtn = document.getElementById("done-btn");
 let toDoContainer = document.getElementById("to-do-item-container");
 let toDoItemEl = document.querySelector(".to-do-item");
+const userNameEl = document.getElementById("user-name");
+
 // Event Listeners
 
 addBtn.addEventListener("click", storeToDoItem);
 toDoContainer.addEventListener("click", removeOrDone);
+
 // Functions
+
+window.onload = function takeUserName() {
+  let userName = prompt("Enter your name: ");
+  if (userName === "my" || userName === "My") {
+    userNameEl.textContent = userName + " ";
+  } else if (userName) {
+    userNameEl.textContent = userName + "'s \n";
+  }
+};
 
 function storeToDoItem() {
   let toDoString = inputEl.value;
