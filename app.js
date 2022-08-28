@@ -16,7 +16,7 @@ toDoContainer.addEventListener("click", removeOrDone);
 window.onload = function takeUserName() {
   let userName = prompt("Enter your name: ");
   if (userName === "my" || userName === "My") {
-    userNameEl.textContent = userName + " ";
+    userNameEl.textContent = "My ";
   } else if (userName) {
     userNameEl.textContent = userName + "'s \n";
   }
