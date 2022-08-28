@@ -167,6 +167,7 @@ input {
     margin: 3rem 0 0 0;
     font-size: 1.2rem;
     padding: 1rem;
+    -webkit-appearance: none;
   }
   input::placeholder {
     color: rgba(0, 0, 0, 0.3);
