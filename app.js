@@ -5,6 +5,7 @@ const doneBtn = document.getElementById("done-btn");
 let toDoContainer = document.getElementById("to-do-item-container");
 let toDoItemEl = document.querySelector(".to-do-item");
 const userNameEl = document.getElementById("user-name");
+let userNameStore = "";
 
 // Event Listeners
 
@@ -13,14 +14,24 @@ toDoContainer.addEventListener("click", removeOrDone);
 
 // Functions
 
-window.onload = function takeUserName() {
-  let userName = prompt("Enter your name: ");
-  if (userName === "my" || userName === "My") {
-    userNameEl.textContent = "My ";
-  } else if (userName) {
-    userNameEl.textContent = userName + "'s \n";
+window.onload = function checkForExistingUsername() {
+  if (localStorage.getItem("username") === null) {
+    let userName = prompt("Enter your name: ");
+    localStorage.setItem("username", userName);
+    userNameStore = userName;
+  } else {
+    userNameStore = localStorage.getItem("username");
   }
+  displayUserName();
 };
+
+function displayUserName() {
+  if (userNameStore === "my" || userNameStore === "My") {
+    userNameEl.textContent = "My ";
+  } else {
+    userNameEl.textContent = userNameStore + "'s ";
+  }
+}
 
 function storeToDoItem() {
   let toDoString = inputEl.value;
